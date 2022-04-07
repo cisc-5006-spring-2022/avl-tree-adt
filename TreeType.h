@@ -94,7 +94,7 @@ TreeNode<ItemType>* Balance(TreeNode<ItemType> *T) {
     // Is the balance factor too heavy on the left side?
     if (balanceFactor > 1) {
         // If the left subtree is heavier on the left side, we do a simple right rotation
-        if (Difference(T->left) > 0) {
+        if (Difference(T->left) > 0) { // BOOK BUG: This line is incorrect in the book
             return RotateRight(T);
         } else {
             // Otherwise, the left subtree is heavier on the right side, so we do a left-right
@@ -104,7 +104,7 @@ TreeNode<ItemType>* Balance(TreeNode<ItemType> *T) {
     }
     else if (balanceFactor < -1) {
         // If the right subtree is heavier on the right side, we do a simple left rotation
-        if (Difference(T->right) < 0) {
+        if (Difference(T->right) < 0) { // BOOK BUG: This line is incorrect in the book
             return RotateLeft(T);
         } else {
             // Otherwise, the right subtree is heavier on the left side, so we do a right-left
